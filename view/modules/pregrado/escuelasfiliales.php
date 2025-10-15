@@ -32,7 +32,7 @@
                 <div id="collapseSociales" class="accordion-collapse collapse" aria-labelledby="facultadIngenieriasJ" data-bs-parent="#escuelasAccordion">
                     <div class="accordion-body">
                         <ul class="list-group">
-                            <li class="list-group-item">Escuela Profesional de Ingenieria trial</li>
+                            <li class="list-group-item">Escuela Profesional de Ingenieria Agroindustrial</li>
                             <li class="list-group-item">Escuela Profesional de Arquitectura y Urbanismo</li>
                         
                         </ul>

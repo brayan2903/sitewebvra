@@ -5,7 +5,7 @@
         <div class="col-lg-6 pe-lg-5">
             <h2 class="fw-bold text-primary mb-4">Vicerrectorado Académico</h2>
             <p class="text-muted mb-4">
-                El Vicerrectorado Académico de la Universidad Nacional del Altiplano de Puno lidera, coordina y supervisa las actividades académicas. Su misión es garantizar una educación de calidad, promover la investigación y fomentar la innovación para contribuir al desarrollo regional y nacional.
+                El Vicerrectorado Académico de la Universidad Nacional del Altiplano Puno lidera, coordina y supervisa las actividades académicas. Su misión es garantizar una educación de calidad, promover la investigación y fomentar la innovación para contribuir al desarrollo regional y nacional.
             </p>
             <div class="mb-4">
                 <div class="d-flex align-items-center mb-2">
@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <!-- Misión y Visión -->
+    <!-- Misión y Visión
     <div class="row g-4 mb-5">
         <div class="col-md-6">
             <div class="card border-0 shadow-sm h-100">
@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- Logros Destacados -->
     <div class="py-4 bg-light rounded-4">
@@ -97,7 +97,7 @@
     <!-- Compromisos Futuros -->
     <div class="py-5">
         <div class="container">
-            <h2 class="text-center fw-bold text-primary mb-4">Compromisos Futuros</h2>
+            <h2 class="text-center fw-bold text-primary mb-4">Compromisos</h2>
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6">
                     <img src="./public/img/vra/compromiso.jpg" class="img-fluid rounded-4 shadow-sm" alt="Compromisos Futuros">

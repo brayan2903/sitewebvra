@@ -31,16 +31,17 @@
                         </li>
                         <li class="mb-2">
                             <i class="fas fa-chevron-right text-primary me-2"></i>
-                            Tres direcciones principales:
+                            Cuatro direcciones principales:
                             <ul class="ms-4 mt-1">
-                                <li>Gestión Académica</li>
-                                <li>Investigación</li>
-                                <li>Bienestar Universitario</li>
+                                <li>Dirección de Gestión Académica</li>
+                                <li>Dirección de Admisión</li>
+                                <li>Dirección de Bienestar Universitario</li>
+                                <li>Dirección de Proyección Social y Extensión Cultural</li>
                             </ul>
                         </li>
                         <li>
                             <i class="fas fa-chevron-right text-primary me-2"></i>
-                            Unidades especializadas en cada dirección
+                            Sub Unidades especializadas en cada dirección
                         </li>
                     </ul>
                 </div>

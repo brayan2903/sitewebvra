@@ -46,7 +46,7 @@
                              class="img-fluid rounded-circle mb-2 shadow-sm" 
                              style="width: 120px; height: 120px; object-fit: cover;">
                     </div>
-                    <h5 class="card-title text-primary h6 mb-1">Dr. Ariel Velazco Cardenas</h5>
+                    <h5 class="card-title text-primary h6 mb-1">Dr. Ariel Rogelio Velazco Cárdenas</h5>
                     <p class="text-muted small mb-0">Vicerrector de Investigación</p>
                 </div>
             </div>
@@ -62,11 +62,11 @@
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body text-center p-2">
                     <div class="mb-2">
-                        <img src="./public/img/vra/diga.png" alt="Dirección de Gestión Académica" 
+                        <img src="./public/img/vra/default.jpg" alt="Dirección de Gestión Académica" 
                              class="img-fluid rounded-circle mb-2 shadow-sm" 
                              style="width: 100px; height: 100px; object-fit: cover;">
                     </div>
-                    <h5 class="card-title text-primary h6 mb-1">Dr. Godofredo Huaman Monroy</h5>
+                    <h5 class="card-title text-primary h6 mb-1">Dr. Edwin Guido Boza Condorena</h5>
                     <p class="text-muted x-small mb-0">Dirección de Gestión Académica</p>
                 </div>
             </div>

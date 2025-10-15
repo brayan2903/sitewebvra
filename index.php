@@ -210,7 +210,7 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="./" class="nav-item nav-link active animated zoomIn" data-wow-delay="0.1s">Inicio</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle animated zoomIn" data-bs-toggle="dropdown" data-wow-delay="0.1s">El VRA</a>
+                <a href="#" class="nav-link dropdown-toggle animated zoomIn" data-bs-toggle="dropdown" data-wow-delay="0.1s">VRA</a>
                 <div class="dropdown-menu fit-content rounded-0 m-0 p-0">
                     <a href="vra" class="dropdown-item">Acerca del VRA</a>
                     <a href="NuestroVicerrector" class="dropdown-item">Nuestro vicerrector</a>
@@ -222,10 +222,10 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle animated zoomIn" data-wow-delay="0.1s" data-bs-toggle="dropdown">Dependencias</a>
                 <div class="dropdown-menu fit-content rounded-0 m-0 p-0">
-                    <a href="dgea" class="dropdown-item">Dirección de gestión académica</a>
+                    <a href="dgea" class="dropdown-item">Dirección de Gestión Académica</a>
                     <a href="dad" class="dropdown-item">Dirección de Admisión</a>
-                    <a href="dibu" class="dropdown-item">Dirección de Bienestar Universitaria</a>
-                    <a href="dipec" class="dropdown-item">Dirección de proyección social y extención cultural</a>
+                    <a href="dibu" class="dropdown-item">Dirección de Bienestar Universitario</a>
+                    <a href="dipec" class="dropdown-item">Dirección de Proyección Social y Extención Cultural</a>
                 </div>
             </div>
             <div class="nav-item dropdown">
@@ -238,13 +238,13 @@
                     <!-- <a href="convocatoriasCap" class="dropdown-item">Directorio</a> -->
                 </div>
             </div>
-            <div class="nav-item dropdown">
+            <!-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle animated zoomIn" data-wow-delay="0.1s" data-bs-toggle="dropdown">institucionales</a>
                 <div class="dropdown-menu fit-content rounded-0 m-0 p-0">
                     <a href="eventos" class="dropdown-item">Estatuto</a>
                     <a href="noticias" class="dropdown-item">Normativa</a>
                 </div>
-            </div>
+            </div> -->
             <a href="documentos" class="nav-item nav-link animated zoomIn" data-wow-delay="0.1s">Documentos</a>
         </div>
 
@@ -355,28 +355,60 @@ if (isset($_GET["url"]) && $_GET["url"] == "/admin") { // Se compara con /admin
     exit();
 }
 
-// 2. Definimos la lista blanca de todas las páginas permitidas
+// 2. Definimos una lista blanca de todas las páginas permitidas
 $rutas_permitidas = [
-    "vra" => "vra", "NuestroVicerrector" => "vra", "misionyvision" => "vra",
-    "organigramvra" => "vra", "autoridades" => "vra", "dgea" => "direcciones",
-    "dad" => "direcciones", "dibu" => "direcciones", "dipec" => "direcciones",
-    "areas" => "pregrado", "escuelasprofesionales" => "pregrado",
-    "filiales" => "pregrado", "escuelasfiliales" => "pregrado",
-    "departamentos" => "pregrado", "documentos" => "documentos",
-    "documento" => "documento", "documentoOficio" => "documento",
-    "evento" => "documento", "noticia" => "documento", "eventos" => "comunicados",
+    // ---- RUTAS ACTIVAS ----
+    "vra" => "vra",
+    "NuestroVicerrector" => "vra",
+    "misionyvision" => "vra",
+    "organigramvra" => "vra",
+    "autoridades" => "vra",
+    "dgea" => "direcciones",
+    "dad" => "direcciones",
+    "dibu" => "direcciones",
+    "dipec" => "direcciones",
+    "areas" => "pregrado",
+    "escuelasprofesionales" => "pregrado",
+    "filiales" => "pregrado",
+    "escuelasfiliales" => "pregrado",
+    "departamentos" => "pregrado",
+    "documentos" => "documentos",
+    "documento" => "documento",
+    "documentoOficio" => "documento",
+    "evento" => "documento",
+    "noticia" => "documento",
+    "eventos" => "comunicados",
     "noticias" => "oficios",
+
+    // ---- RUTAS ANTIGUAS (DESACTIVADAS COMO REFERENCIA) ----
+    // "acercavra" => "institucional",
+    // "nosotrosxx" => "institucional",
+    // "directorioxx" => "institucional",
+    // "documentosdegestionxx" => "institucional",
+    // "organigramaxx" => "institucional",
+    // "administracionxx" => "administracion",
+    // "gestionInstitucionalxx" => "gestionInstitucional",
+    // "gestionPedagogicaxx" => "gestionPedagogica",
+    // "asesoriaJuridicaxx" => "asesoriaJuridica",
+    // "convocatoriasxx" => "convocatorias",
+    // "convocatoriasCasxx" => "convocatorias",
+    // "convocatoriasDocentexx" => "convocatorias",
+    // "convocatoriasAuxiliarxx" => "convocatorias",
+    // "convocatoriasDirectivosxx" => "convocatorias",
+    // "convocatoriasCapxx" => "convocatorias",
+    // "servicioxx" => "servicio",
+    // "reclamosxx" => "reclamos",
 ];
 
 // 3. Verificamos si se pidió una URL específica
 if (isset($_GET["url"])) {
-
-    // --- ESTA ES LA LÍNEA NUEVA Y CORRECCIÓN CLAVE ---
-    $pagina_solicitada = ltrim($_GET["url"], '/'); // Eliminamos la barra '/' del inicio
+    
+    // Eliminamos la barra '/' del inicio para que coincida con nuestra lista
+    $pagina_solicitada = ltrim($_GET["url"], '/');
 
     // 4. Verificamos si la página está en nuestra lista blanca
     if (array_key_exists($pagina_solicitada, $rutas_permitidas)) {
-
+        
         $carpeta = $rutas_permitidas[$pagina_solicitada];
         $ruta_archivo = "view/modules/" . $carpeta . "/" . $pagina_solicitada . ".php";
 
@@ -387,7 +419,7 @@ if (isset($_GET["url"])) {
         }
 
     } else {
-        // Si la ruta está vacía (era la página de inicio "/") o no está en la lista, mostramos el inicio
+        // Si la ruta era la página de inicio ("/") o no está en la lista, decidimos qué mostrar
         if ($pagina_solicitada == "") {
              include "view/modules/inicio.php";
         } else {

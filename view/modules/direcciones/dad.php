@@ -1,7 +1,7 @@
 <!-- Dirección de Admisiones Start -->
 <div class="container py-4">
     <div class="text-center mb-4">
-        <h2 class="h4 text-primary fw-bold mb-2">Dirección de Admisiones</h2>
+        <h2 class="h4 text-primary fw-bold mb-2">Dirección de Admisión</h2>
         <p class="text-muted small mx-auto" style="max-width: 600px;">
             Transformando oportunidades educativas a través de procesos transparentes, inclusivos y justos.
         </p>
