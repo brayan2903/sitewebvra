@@ -350,73 +350,53 @@
 
 <?php
 // 1. Verificamos si se está pidiendo la página de administración (caso especial)
-if (isset($_GET["url"]) && $_GET["url"] == "admin") {
+if (isset($_GET["url"]) && $_GET["url"] == "/admin") { // Se compara con /admin
     header('Location: admin/index.php');
-    exit(); // Detenemos la ejecución para que la redirección funcione
+    exit();
 }
 
-// 2. Definimos una lista blanca de todas las páginas permitidas y sus carpetas
+// 2. Definimos la lista blanca de todas las páginas permitidas
 $rutas_permitidas = [
-    // Módulos principales
-    "inicio" => "modules",
-
-    // Módulos VRA
-    "vra" => "vra",
-    "NuestroVicerrector" => "vra",
-    "misionyvision" => "vra",
-    "organigramvra" => "vra",
-    "autoridades" => "vra",
-
-    // Direcciones
-    "dgea" => "direcciones",
-    "dad" => "direcciones",
-    "dibu" => "direcciones",
-    "dipec" => "direcciones",
-
-    // Pregrado
-    "areas" => "pregrado",
-    "escuelasprofesionales" => "pregrado",
-    "filiales" => "pregrado",
-    "escuelasfiliales" => "pregrado",
-    "departamentos" => "pregrado",
-
-    // Documentos y tipos de documento
-    "documentos" => "documentos",
-    "documento" => "documento",
-    "documentoOficio" => "documento",
-    "evento" => "documento",
-    "noticia" => "documento",
-
-    // Comunicados y Oficios (Listados)
-    "eventos" => "comunicados",
+    "vra" => "vra", "NuestroVicerrector" => "vra", "misionyvision" => "vra",
+    "organigramvra" => "vra", "autoridades" => "vra", "dgea" => "direcciones",
+    "dad" => "direcciones", "dibu" => "direcciones", "dipec" => "direcciones",
+    "areas" => "pregrado", "escuelasprofesionales" => "pregrado",
+    "filiales" => "pregrado", "escuelasfiliales" => "pregrado",
+    "departamentos" => "pregrado", "documentos" => "documentos",
+    "documento" => "documento", "documentoOficio" => "documento",
+    "evento" => "documento", "noticia" => "documento", "eventos" => "comunicados",
     "noticias" => "oficios",
 ];
 
 // 3. Verificamos si se pidió una URL específica
 if (isset($_GET["url"])) {
-    $pagina_solicitada = $_GET["url"];
+
+    // --- ESTA ES LA LÍNEA NUEVA Y CORRECCIÓN CLAVE ---
+    $pagina_solicitada = ltrim($_GET["url"], '/'); // Eliminamos la barra '/' del inicio
 
     // 4. Verificamos si la página está en nuestra lista blanca
     if (array_key_exists($pagina_solicitada, $rutas_permitidas)) {
-        
+
         $carpeta = $rutas_permitidas[$pagina_solicitada];
         $ruta_archivo = "view/modules/" . $carpeta . "/" . $pagina_solicitada . ".php";
 
-        // 5. Verificamos si el archivo físico existe antes de incluirlo
         if (file_exists($ruta_archivo)) {
             include $ruta_archivo;
         } else {
-            // Si el archivo no existe en el disco, mostramos un error 404
             include "view/modules/error/404.php";
         }
 
     } else {
-        // Si la página no está en la lista blanca, mostramos un error 404
-        include "view/modules/error/404.php";
+        // Si la ruta está vacía (era la página de inicio "/") o no está en la lista, mostramos el inicio
+        if ($pagina_solicitada == "") {
+             include "view/modules/inicio.php";
+        } else {
+             include "view/modules/error/404.php";
+        }
     }
 
 } else {
-    // Si no se especifica ninguna URL en la dirección, cargamos la página de inicio
+    // Si no se especifica ninguna URL, cargamos la página de inicio
     include "view/modules/inicio.php";
 }
 ?>
