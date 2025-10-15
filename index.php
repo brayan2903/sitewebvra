@@ -348,148 +348,98 @@
 </nav>
 <!-- Navbar End -->
 
-        <?php
-        if (isset($_GET["url"])) {
-            switch ($_GET["url"]) {
-                case "inicio":
-                    include "view/modules/" . $_GET["url"] . ".php";
-                    break;
-                case "acercavra":
-                    include "view/modules/institucional/" . $_GET["url"] . ".php";
-                    break;
-                case "vra":
-                    include "view/modules/vra/" . $_GET["url"] . ".php";
-                    break;
-                case "NuestroVicerrector":
-                    include "view/modules/vra/" . $_GET["url"] . ".php";
-                    break;
-                case "misionyvision":
-                    include "view/modules/vra/" . $_GET["url"] . ".php";
-                    break;
-                case "organigramvra":
-                    include "view/modules/vra/" . $_GET["url"] . ".php";
-                    break;
-                case "autoridades":
-                    include "view/modules/vra/" . $_GET["url"] . ".php";
-                    break;
-                case "dgea":
-                    include "view/modules/direcciones/" . $_GET["url"] . ".php";
-                    break;
-                case "dad":
-                    include "view/modules/direcciones/" . $_GET["url"] . ".php";
-                    break;
-                case "dibu":
-                    include "view/modules/direcciones/" . $_GET["url"] . ".php";
-                    break;
-                case "dipec":
-                    include "view/modules/direcciones/" . $_GET["url"] . ".php";
-                    break;
-                case "areas":
-                    include "view/modules/pregrado/" . $_GET["url"] . ".php";
-                    break;
-                case "escuelasprofesionales":
-                    include "view/modules/pregrado/" . $_GET["url"] . ".php";
-                    break;
-                case "filiales":
-                    include "view/modules/pregrado/" . $_GET["url"] . ".php";
-                    break;
-                case "escuelasfiliales":
-                    include "view/modules/pregrado/" . $_GET["url"] . ".php";
-                    break;
-                case "departamentos":
-                    include "view/modules/pregrado/" . $_GET["url"] . ".php";
-                    break;
-                case "documentos":
-                    include "view/modules/documentos/" . $_GET["url"] . ".php";
-                    break;
-                    
-                case "nosotrosxx":
-                    include "view/modules/institucional/" . $_GET["url"] . ".php";
-                    break;
-                case "directorioxx":
-                    include "view/modules/institucional/" . $_GET["url"] . ".php";
-                    break;
-                case "documentosdegestionxx":
-                    include "view/modules/institucional/" . $_GET["url"] . ".php";
-                    break;
-                case "organigramaxx":
-                    include "view/modules/institucional/" . $_GET["url"] . ".php";
-                    break;
-                case "administracionxx":
-                    include "view/modules/administracion/" . $_GET["url"] . ".php";
-                    break;
-                case "gestionInstitucionalxx":
-                    include "view/modules/gestionInstitucional/" . $_GET["url"] . ".php";
-                    break;
-                case "gestionPedagogicaxx":
-                    include "view/modules/gestionPedagogica/" . $_GET["url"] . ".php";
-                    break;
-                case "asesoriaJuridicaxx":
-                    include "view/modules/asesoriaJuridica/" . $_GET["url"] . ".php";
-                    break;
-                case "convocatoriasxx":
-                    include "view/modules/convocatorias/" . $_GET["url"] . ".php";
-                    break;
-                case "convocatoriasCasxx":
-                    include "view/modules/convocatorias/" . $_GET["url"] . ".php";
-                    break;
-                case "convocatoriasDocentexx":
-                    include "view/modules/convocatorias/" . $_GET["url"] . ".php";
-                    break;
-                case "convocatoriasAuxiliarxx":
-                    include "view/modules/convocatorias/" . $_GET["url"] . ".php";
-                    break;
-                case "convocatoriasDirectivosxx":
-                    include "view/modules/convocatorias/" . $_GET["url"] . ".php";
-                    break;
-                case "convocatoriasCapxx":
-                    include "view/modules/convocatorias/" . $_GET["url"] . ".php";
-                    break;
-                case "eventos":
-                    include "view/modules/comunicados/" . $_GET["url"] . ".php";
-                    break;
-                case "noticias":
-                    include "view/modules/oficios/" . $_GET["url"] . ".php";
-                    break;
-                case "servicioxx":
-                    include "view/modules/servicio/" . $_GET["url"] . ".php";
-                    break;
-                case "documento":
-                    include "view/modules/documento/" . $_GET["url"] . ".php";
-                    break;
-                case "documentoOficio":
-                    include "view/modules/documento/" . $_GET["url"] . ".php";
-                    break;
+<?php
+// 1. Verificamos si se está pidiendo la página de administración (caso especial)
+if (isset($_GET["url"]) && $_GET["url"] == "admin") {
+    header('Location: admin/index.php');
+    exit(); // Detenemos la ejecución para que la redirección funcione
+}
 
+// 2. Definimos una lista blanca de todas las páginas permitidas y sus carpetas
+$rutas_permitidas = [
+    // Módulos principales
+    "inicio" => "modules",
 
-                case "documento":
-                    include "view/modules/documento/" . $_GET["url"] . ".php";
-                    break;
-                case "documentoOficio":
-                    //aqui nuevo
-                case "evento":
-                    include "view/modules/documento/" . $_GET["url"] . ".php";
-                    break;
-                case "noticia":
-                    include "view/modules/documento/" . $_GET["url"] . ".php";
-                    break;
-                    //hasta aqyu
-                case "reclamosxx":
-                    include "view/modules/reclamos/" . $_GET["url"] . ".php";
-                    break;
-                case "admin":
-                    header('Location: admin/index.php');
-                    break;
-                default:
-                    include "view/modules/error/404.php";
-                    break;
-            }
+    // Módulos VRA
+    "vra" => "vra",
+    "NuestroVicerrector" => "vra",
+    "misionyvision" => "vra",
+    "organigramvra" => "vra",
+    "autoridades" => "vra",
+
+    // Direcciones
+    "dgea" => "direcciones",
+    "dad" => "direcciones",
+    "dibu" => "direcciones",
+    "dipec" => "direcciones",
+
+    // Pregrado
+    "areas" => "pregrado",
+    "escuelasprofesionales" => "pregrado",
+    "filiales" => "pregrado",
+    "escuelasfiliales" => "pregrado",
+    "departamentos" => "pregrado",
+
+    // Documentos y tipos de documento
+    "documentos" => "documentos",
+    "documento" => "documento",
+    "documentoOficio" => "documento",
+    "evento" => "documento",
+    "noticia" => "documento",
+
+    // Comunicados y Oficios (Listados)
+    "eventos" => "comunicados",
+    "noticias" => "oficios",
+
+    // Rutas antiguas (con 'xx')
+    "acercavra" => "institucional", // Asumiendo que esta va aquí
+    "nosotrosxx" => "institucional",
+    "directorioxx" => "institucional",
+    "documentosdegestionxx" => "institucional",
+    "organigramaxx" => "institucional",
+    "administracionxx" => "administracion",
+    "gestionInstitucionalxx" => "gestionInstitucional",
+    "gestionPedagogicaxx" => "gestionPedagogica",
+    "asesoriaJuridicaxx" => "asesoriaJuridica",
+    "convocatoriasxx" => "convocatorias",
+    "convocatoriasCasxx" => "convocatorias",
+    "convocatoriasDocentexx" => "convocatorias",
+    "convocatoriasAuxiliarxx" => "convocatorias",
+    "convocatoriasDirectivosxx" => "convocatorias",
+    "convocatoriasCapxx" => "convocatorias",
+    "servicioxx" => "servicio",
+    "reclamosxx" => "reclamos",
+];
+
+// 3. Verificamos si se pidió una URL específica
+if (isset($_GET["url"])) {
+    $pagina_solicitada = $_GET["url"];
+
+    // 4. Verificamos si la página está en nuestra lista blanca
+    if (array_key_exists($pagina_solicitada, $rutas_permitidas)) {
+        
+        $carpeta = $rutas_permitidas[$pagina_solicitada];
+        $ruta_archivo = "view/modules/" . $carpeta . "/" . $pagina_solicitada . ".php";
+
+        // 5. Verificamos si el archivo físico existe antes de incluirlo
+        if (file_exists($ruta_archivo)) {
+            include $ruta_archivo;
         } else {
-            require "view/modules/inicio.php";
+            // Si el archivo no existe en el disco, mostramos un error 404
+            include "view/modules/error/404.php";
         }
 
+    } else {
+        // Si la página no está en la lista blanca, mostramos un error 404
+        include "view/modules/error/404.php";
+    }
 
-        ?>
+} else {
+    // Si no se especifica ninguna URL en la dirección, cargamos la página de inicio
+    include "view/modules/inicio.php";
+}
+?>
+
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-white-5 footer pt-1 mt-1 wow fadeIn" data-wow-delay="0.1s">
     <div class="container py-2">
