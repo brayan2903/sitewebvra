@@ -163,7 +163,7 @@
         var ext = $(this).val().split('.').pop();
         if ($(this).val() != '') {
             if (ext == "pdf" || ext == "PDF") {
-                if ($(this)[0].files[0].size > 8048576) {
+                if ($(this)[0].files[0].size > 104857600) {
                     $("#txt_doc_archivo1").val("");
                     Swal.fire("El archivo seleccionado es demasiado pesado",
                         "<label style='color:#9B0000;'>Seleccione un archivo más liviano</label>",
@@ -180,7 +180,7 @@
         var ext = $(this).val().split('.').pop();
         if ($(this).val() != '') {
             if (ext == "pdf" || ext == "PDF") {
-                if ($(this)[0].files[0].size > 8048576) {
+                if ($(this)[0].files[0].size > 104857600) {
                     $("#txt_doc_archivo2").val("");
                     Swal.fire("El archivo seleccionado es demasiado pesado",
                         "<label style='color:#9B0000;'>Seleccione un archivo más liviano</label>",
@@ -197,7 +197,7 @@
         var ext = $(this).val().split('.').pop();
         if ($(this).val() != '') {
             if (ext == "pdf" || ext == "PDF") {
-                if ($(this)[0].files[0].size > 8048576) {
+                if ($(this)[0].files[0].size > 104857600) {
                     $("#txt_doc_archivo3").val("");
                     Swal.fire("El archivo seleccionado es demasiado pesado",
                         "<label style='color:#9B0000;'>Seleccione un archivo más liviano</label>",
@@ -214,7 +214,7 @@
         var ext = $(this).val().split('.').pop();
         if ($(this).val() != '') {
             if (ext == "pdf" || ext == "PDF") {
-                if ($(this)[0].files[0].size > 8048576) {
+                if ($(this)[0].files[0].size > 104857600) {
                     $("#txt_doc_archivo4").val("");
                     Swal.fire("El archivo seleccionado es demasiado pesado",
                         "<label style='color:#9B0000;'>Seleccione un archivo más liviano</label>",
@@ -231,7 +231,7 @@
         var ext = $(this).val().split('.').pop();
         if ($(this).val() != '') {
             if (ext == "pdf" || ext == "PDF") {
-                if ($(this)[0].files[0].size > 8048576) {
+                if ($(this)[0].files[0].size > 104857600) {
                     $("#txt_doc_archivo5").val("");
                     Swal.fire("El archivo seleccionado es demasiado pesado",
                         "<label style='color:#9B0000;'>Seleccione un archivo más liviano</label>",
