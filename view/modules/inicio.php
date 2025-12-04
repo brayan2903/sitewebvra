@@ -36,7 +36,7 @@
                             <div class="category-box">
                                 <img src="https://cdn-icons-png.flaticon.com/512/2232/2232688.png" alt="Carga Académica" class="category-logo">
                             </div>
-                            <p class="category-text text-white">CARGA ACADÉMICA<br>SISCAD</p>
+                            <p class="category-text text-white">GESTIÓN DE CARGA ACADÉMICA<br>SIGCAD</p>
                         </a>
                     </div>
                     <!-- Tarjeta 2 -->
@@ -77,11 +77,11 @@
                     </div>
                     <!-- Tarjeta 6 -->
                     <div class="services col-lg-2 col-6 animated zoomIn" data-wow-delay="1.1s">
-                        <a class="category-item" href="#">
+                        <a class="category-item" href="http://gestioncurricular-pregrado.unap.edu.pe/login">
                             <div class="category-box">
-                                <img src="https://cdn-icons-png.flaticon.com/512/6195/6195702.png" alt="Asistencia Docentes" class="category-logo">
+                                <img src="https://cdn-icons-png.flaticon.com/512/6195/6195702.png" alt="curricular" class="category-logo">
                             </div>
-                            <p class="category-text text-white">ASISTENCIA<br>DOCENTES</p>
+                            <p class="category-text text-white">SISTEMA DE GESTIÓN<br>CURRICULAR</p>
                         </a>
                     </div>
                 </div>
